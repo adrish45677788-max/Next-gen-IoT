@@ -1,0 +1,308 @@
+/* ========================================= */
+/* Next-gen IoT - Master Stylesheet          */
+/* ========================================= */
+
+:root {
+    --primary: #00d4ff;
+    --dark: #0f172a;
+    --card: #1e293b;
+    --text: #f8fafc;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(15, 23, 42, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #334155;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Mobile adjustments to make the menu look good on phones */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* --- General Section Styles --- */
+.section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+/* --- Team Grid (Who We Are) --- */
+.team-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 250px;
+    border: 1px solid #334155;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    margin-bottom: 15px;
+}
+
+.role {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* --- Project Section --- */
+.project-card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: left;
+    border: 1px solid #334155;
+    margin: 0 auto;
+}
+
+.project-card ul {
+    padding-left: 20px;
+}
+
+.project-card li {
+    margin-bottom: 10px;
+}
+
+.aqi-simulator {
+    margin-top: 30px;
+    text-align: center;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.aqi-display {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #4ade80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aqi-label {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-top: 5px;
+}
+
+/* --- Build Grid (Videos & Components) --- */
+.build-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.build-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 250px;
+    border: 1px solid #334155;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.build-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(0, 212, 255, 0.15);
+}
+
+.build-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #334155;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--dark);
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #00b4db;
+}
+
+/* --- Scroll Animations --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Modals (Video & Image Pop-ups) --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal video {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+.modal.show video {
+    transform: scale(1);
+}
+
+#modal-image {
+    width: 90%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9; 
+    object-fit: cover;    
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+.modal.show #modal-image {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.close-btn:hover {
+    color: var(--primary);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: #0f172a;
+    border-top: 1px solid #334155;
+}
+
+.copyright {
+    margin-top: 30px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
